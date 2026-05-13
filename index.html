@@ -95,7 +95,23 @@ body{background:#DDE3E4;font-family:"DM Sans",sans-serif;-webkit-font-smoothing:
 .spinner{width:36px;height:36px;border:3px solid rgba(26,122,142,.2);border-top-color:var(--teal);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-txt{font-size:13px;color:var(--sage);font-weight:300;}
-@media(max-width:540px){.hero-inner,.steps-section,.progress-section,.quote-strip{padding-left:24px;padding-right:24px;}.hero-name{font-size:38px;}.cta-section{margin:0 24px 32px;padding:28px 24px;}.footer{padding:20px 24px;}}
+@media (max-width: 600px) {
+  body { padding: 16px 8px 40px; }
+  .shell { border-radius: 0; } /* Tira a borda para parecer um app de celular */
+  .hero-inner, .steps-section, .progress-section, .quote-strip { padding-left: 20px; padding-right: 20px; }
+  .hero-topbar { flex-direction: column; gap: 16px; align-items: flex-start; margin-bottom: 32px; }
+  .hero-name { font-size: 36px; }
+  .progress-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .step { gap: 12px; }
+  .step-num { width: 32px; height: 32px; font-size: 12px; }
+  .card-top { flex-direction: column; } /* Empilha título e tag no card */
+  .badge { margin-top: 4px; }
+  .btn-row { flex-direction: column; width: 100%; }
+  .btn { width: 100%; justify-content: center; text-align: center; } /* Botões largos e confortáveis para o dedo */
+  .cta-section { margin: 0 16px 32px; padding: 28px 20px; }
+  .btn-wa { width: 100%; justify-content: center; padding: 12px 20px; }
+  .quote-txt { font-size: 14px; }
+}
 </style>
 </head>
 <body>
