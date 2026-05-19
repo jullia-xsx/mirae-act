@@ -287,12 +287,25 @@ function showToast(msg, tipo) {
 }
 
 function btnEmail() {
+  function btnEmail() {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
   if (isMobile) {
-    return '<a href="googlegmail://co?subject=soluti" class="btn btn-primary">🔍 Gmail</a>' +
-           '<a href="https://mail.google.com/mail/u/0/#search/soluti" class="btn btn-ghost">🌐 Abrir no navegador</a>';
+    // No mobile, orientamos o usuário a buscar no app dele, e deixamos o link web como plano B.
+    return `
+      <div style="display:flex; flex-direction:column; gap:10px; width:100%;">
+        <div style="font-size:13px; color:var(--sage); background:rgba(168,184,187,.15); padding:10px 14px; border-radius:6px; border:1px dashed rgba(61,100,112,.3);">
+          📱 <strong>Dica:</strong> Abra o aplicativo de e-mail que você costuma usar no celular e busque por <strong>"Soluti"</strong>.
+        </div>
+        <a href="https://mail.google.com/mail/u/0/#search/soluti" target="_blank" class="btn btn-ghost">
+          🌐 Tentar abrir Gmail no navegador
+        </a>
+      </div>
+    `;
   }
-  return '<a href="https://mail.google.com/mail/u/0/#search/soluti" class="btn btn-primary">🔍 Procurar e-mail</a>';
+  
+  // No desktop, mantemos o comportamento perfeito original
+  return '<a href="https://mail.google.com/mail/u/0/#search/soluti" target="_blank" class="btn btn-primary">🔍 Procurar no Gmail</a>';
 }
 
 // ── Confirmar etapa via GET → Apps Script ───────────────────
