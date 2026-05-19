@@ -286,6 +286,15 @@ function showToast(msg, tipo) {
   setTimeout(function() { t.className = 'toast'; }, 3000);
 }
 
+function btnEmail() {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    return '<a href="googlegmail://co?subject=soluti" class="btn btn-primary">🔍 Gmail</a>' +
+           '<a href="https://mail.google.com/mail/u/0/#search/soluti" class="btn btn-ghost">🌐 Abrir no navegador</a>';
+  }
+  return '<a href="https://mail.google.com/mail/u/0/#search/soluti" class="btn btn-primary">🔍 Procurar e-mail</a>';
+}
+
 // ── Confirmar etapa via GET → Apps Script ───────────────────
 function concluirEtapa(etapaNum, nomeDoMedico, idMedico) {
   const btn = document.getElementById('btn-concluir-' + etapaNum);
@@ -367,7 +376,7 @@ function renderizar(nome, etapa, id) {
       desc: "Emissão gratuita da sua assinatura digital profissional via Soluti.",
       alerta: '<div class="alert a-amber"><strong>Instrução:</strong> O link de emissão foi enviado diretamente pela Soluti para o seu e-mail cadastrado.</div>',
       botoes:
-        '<a href="https://mail.google.com/mail/u/0/#search/soluti" class="btn btn-primary">🔍 Procurar e-mail</a>' +
+        btnEmail() +
         btnConcluir(2)
     },
     {
